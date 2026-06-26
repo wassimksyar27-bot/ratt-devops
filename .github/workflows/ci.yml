@@ -1,0 +1,32 @@
+name: CI - Vérification couleur de fond
+
+# Ce workflow s'exécute :
+#  - à chaque push sur la branche `test` (retour rapide pendant le développement)
+#  - à chaque Pull Request visant `main` (c'est ce check qui bloque le merge
+#    si la branche main est protégée avec "Require status checks to pass")
+#  - à chaque push direct sur `main` (sécurité supplémentaire avant le déploiement Vercel)
+on:
+  push:
+    branches: [ test, main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Test couleur de fond (bleu = OK, orange = bloqué)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Lancer le script de test de couleur
+        run: python -m pytest tests/test_color.py -v

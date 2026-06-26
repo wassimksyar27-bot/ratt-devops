@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline CI/CD - Rattrapage DevOps</title>
+</head>
+<!--
+    IMPORTANT : la couleur ci-dessous est celle vérifiée par le test Python
+    (tests/test_color.py) à chaque exécution de GitHub Actions.
+    - Si background-color = orange  -> le test échoue, le merge sur main est bloqué.
+    - Si background-color = blue (ou autre couleur) -> le test réussit, le merge
+      sur main est autorisé et Vercel déploie automatiquement.
+-->
+<body style="background-color: blue; margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center; font-family: Arial, Helvetica, sans-serif;">
+    <div style="text-align: center; color: #ffffff;">
+        <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Pipeline CI/CD - Rattrapage DevOps</h1>
+        <p style="font-size: 1.1rem;">Application Django déployée automatiquement via GitHub Actions &amp; Vercel</p>
+    </div>
+</body>
+</html>
